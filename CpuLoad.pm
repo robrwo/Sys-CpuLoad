@@ -2,7 +2,7 @@ package Sys::CpuLoad;
 
 # Copyright (c) 1999-2002 Clinton Wong. All rights reserved.
 # This program is free software; you can redistribute it
-# and/or modify it under the same terms as Perl itself. 
+# and/or modify it under the same terms as Perl itself.
 
 use strict;
 use vars qw($VERSION @ISA @EXPORT @EXPORT_OK);
@@ -36,9 +36,9 @@ of a machine.
 
 =head1 AUTHOR
 
- Clinton Wong
- Contact info:
- http://search.cpan.org/search?mode=author&query=CLINTDW
+Originally written by Clinton Wong <clintdw@cpan.org>.
+
+Maintained since 2020 by Robert Rothenberg <rrwo@cpan.org>.
 
 =head1 COPYRIGHT
 
@@ -70,9 +70,9 @@ sub load {
         $cache = 'linux';
         return ($1, $2, $3);
       }              # if we can parse /proc/loadavg contents
-    }                # if we could load /proc/loadavg 
+    }                # if we could load /proc/loadavg
   }                  # if linux or not cached
-   
+
   # last resort...
 
   $cache = 'uptimepipe';
@@ -87,10 +87,9 @@ sub load {
       return ($1, $2, $3);
     }                # if we can parse the output of /usr/bin/uptime
   }                  # if we could run /usr/bin/uptime
-    
+
   return (undef, undef, undef);
 }
 
 1;
 __END__
-
