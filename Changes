@@ -8,6 +8,9 @@ Revision history for Perl extension Sys::CpuLoad
   [Documentation]
   - Reformatted Changes to conform to CPAN::Changes::Spec.
 
+  [Tests]
+  - Modernised the test, and added a test of the load function.
+
   [Other]
   - Reorganised files for modern CPAN distributions.
 
