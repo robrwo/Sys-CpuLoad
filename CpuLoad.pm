@@ -15,7 +15,7 @@ require AutoLoader;
 
 @EXPORT = qw();
 @EXPORT_OK = qw(load);
-$VERSION = '0.02';
+$VERSION = '0.04';
 
 bootstrap Sys::CpuLoad $VERSION;
 
