@@ -5,9 +5,8 @@ use ExtUtils::MakeMaker;
 
 WriteMakefile(
     'NAME'	=> 'Sys::CpuLoad',
-    'VERSION_FROM' => 'CpuLoad.pm', # finds $VERSION
+    'VERSION_FROM' => 'lib/Sys/CpuLoad.pm', # finds $VERSION
     'LIBS'      => [''],   # e.g., '-lm'
     'DEFINE'    => '',     # e.g., '-DHAVE_SOMETHING'
     'INC'       => '',     # e.g., '-I/usr/include/other'
 );
-
