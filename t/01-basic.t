@@ -1,8 +1,8 @@
 use Test::Most;
 
-use_ok 'Sys::CpuLoad';
+use_ok 'Sys::CpuLoad', 'load';
 
-my @load = Sys::CpuLoad::load();
+my @load = load();
 
 cmp_deeply
   \@load,
