@@ -22,6 +22,10 @@ on 'configure' => sub {
   requires "ExtUtils::MakeMaker" => "0";
 };
 
+on 'configure' => sub {
+  suggests "JSON::PP" => "2.27300";
+};
+
 on 'develop' => sub {
   requires "Pod::Coverage::TrustPod" => "0";
   requires "Test::EOF" => "0";
