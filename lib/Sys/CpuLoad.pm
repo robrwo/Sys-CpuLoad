@@ -13,7 +13,7 @@ use parent qw(Exporter AutoLoader DynaLoader);
 
 use IO::File;
 
-our @EXPORT = qw();
+our @EXPORT    = qw();
 our @EXPORT_OK = qw(load);
 
 our $VERSION = '0.04';
@@ -49,45 +49,60 @@ Maintained since 2020 by Robert Rothenberg <rrwo@cpan.org>.
 
 =cut
 
-my $cache = 'unknown';
+sub import {
 
-sub load {
+    my $this = __PACKAGE__;
+    my $os   = lc $^O;
 
-  # handle bsd getloadavg().  Read the README about why it is freebsd/openbsd.
-  if ($cache eq 'getloadavg()' or lc $^O eq 'freebsd' or lc $^O eq 'openbsd' ) {
-    $cache = 'getloadavg()';
-    return getbsdload()
-  }
+    if ( -r '/proc/loadavg' && $os eq 'linux' ) {
 
-  # handle linux proc filesystem
-  if ($cache eq 'unknown' or $cache eq 'linux') {
-    my $fh = IO::File->new('/proc/loadavg', 'r');
-    if (defined $fh) {
-      my $line = <$fh>;
-      $fh->close();
-      if ($line =~ /^(\d+\.\d+)\s+(\d+\.\d+)\s+(\d+\.\d+)/) {
-        $cache = 'linux';
-        return ($1, $2, $3);
-      }              # if we can parse /proc/loadavg contents
-    }                # if we could load /proc/loadavg
-  }                  # if linux or not cached
+        no strict 'refs';
 
-  # last resort...
+        *{"${this}::load"} = sub {
+            my $fh = IO::File->new( '/proc/loadavg', 'r' );
+            if ( defined $fh ) {
+                my $line = <$fh>;
+                $fh->close();
+                if ( $line =~ /^(\d+\.\d+)\s+(\d+\.\d+)\s+(\d+\.\d+)/ ) {
+                    return ( $1, $2, $3 );
+                }
+            }
+            return (undef) x 3;
+        };
 
-  $cache = 'uptimepipe';
-  local %ENV = %ENV;
-  $ENV{'LC_NUMERIC'}='POSIX';    # ensure that decimal separator is a dot
+    }
+    elsif ( $os eq 'freebsd' || $os eq 'openbsd' ) {
 
-  my $fh=IO::File->new('/usr/bin/uptime|');
-  if (defined $fh) {
-    my $line = <$fh>;
-    $fh->close();
-    if ($line =~ /(\d+\.\d+)\s*,\s+(\d+\.\d+)\s*,\s+(\d+\.\d+)\s*$/) {
-      return ($1, $2, $3);
-    }                # if we can parse the output of /usr/bin/uptime
-  }                  # if we could run /usr/bin/uptime
+        no strict 'refs';
 
-  return (undef, undef, undef);
+        *{"${this}::load"} = \&getbsdload;
+
+    }
+    else {
+
+        no strict 'refs';
+
+        *{"${this}::load"} = sub {
+
+            local %ENV = %ENV;
+            $ENV{'LC_NUMERIC'} =
+              'POSIX';    # ensure that decimal separator is a dot
+
+            my $fh = IO::File->new('/usr/bin/uptime|');
+            if ( defined $fh ) {
+                my $line = <$fh>;
+                $fh->close();
+                if ( $line =~
+                    /(\d+\.\d+)\s*,\s+(\d+\.\d+)\s*,\s+(\d+\.\d+)\s*$/ )
+                {
+                    return ( $1, $2, $3 );
+                }
+            }
+            return (undef) x 3;
+        };
+    }
+
+    goto &Exporter::import;
 }
 
 1;

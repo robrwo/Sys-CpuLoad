@@ -5,6 +5,8 @@ Revision history for Perl extension Sys::CpuLoad
   [Enhancements]
   - Modernised code style.
 
+  - The load average method is determined during module import.
+
   [Bug Fixes]
   - Fixed VERSION.
 
