@@ -14,7 +14,7 @@ extern "C" {
 MODULE = Sys::CpuLoad		PACKAGE = Sys::CpuLoad
 
 void
-getbsdload()
+_getbsdload()
     PREINIT:
         double loadavg[3];
     PPCODE:
@@ -25,4 +25,3 @@ getbsdload()
         PUSHs(sv_2mortal(newSVnv(loadavg[0])));
         PUSHs(sv_2mortal(newSVnv(loadavg[1])));
         PUSHs(sv_2mortal(newSVnv(loadavg[2])));
-

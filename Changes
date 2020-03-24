@@ -15,6 +15,8 @@ Revision history for Perl extension Sys::CpuLoad
   [Incompatabilities]
   - Minimum version is v5.6.
 
+  - Renamed `getbsdload` to `_getbsdload`.
+
   [Documentation]
   - Reformatted Changes to conform to CPAN::Changes::Spec.
 
