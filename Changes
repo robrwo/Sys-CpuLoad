@@ -1,5 +1,6 @@
-Revision history for Perl extension Sys::CpuLoad
+Revision history for Perl extension {{$dist->name}}:
 
+{{$NEXT}}
   - Maintenance taken over by Robert Rothenberg.
 
   [Enhancements]
@@ -27,6 +28,8 @@ Revision history for Perl extension Sys::CpuLoad
 
   [Other]
   - Reorganised files for modern CPAN distributions.
+
+  - Distribution is minted with Dist::Zilla.
 
 0.03 Mon Mar 18 15:02:33 PST 2002
   - LC_NUMERIC patch from Victor Wagner

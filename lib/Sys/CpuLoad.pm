@@ -1,5 +1,7 @@
 package Sys::CpuLoad;
 
+# ABSTRACT: retrieve system load averages
+
 # Copyright (c) 1999-2002 Clinton Wong. All rights reserved.
 # This program is free software; you can redistribute it
 # and/or modify it under the same terms as Perl itself.
@@ -21,10 +23,6 @@ our $VERSION = '0.10';
 
 XSLoader::load 'Sys::CpuLoad', $VERSION;
 
-=head1 NAME
-
-Sys::CpuLoad - a module to retrieve system load averages.
-
 =head1 DESCRIPTION
 
 This module retrieves the 1 minute, 5 minute, and 15 minute load average
@@ -32,21 +30,22 @@ of a machine.
 
 =head1 SYNOPSIS
 
- use Sys::CpuLoad;
+ use Sys::CpuLoad 'load';
  print '1 min, 5 min, 15 min load average: ',
-       join(',', Sys::CpuLoad::load()), "\n";
+       join(',', load()), "\n";
 
-=head1 AUTHOR
+=export load
 
-Originally written by Clinton Wong <clintdw@cpan.org>.
+This method returns the load average for 1 minute, 5 minutes and 15
+minutes as an array.
 
-Maintained since 2020 by Robert Rothenberg <rrwo@cpan.org>.
+On Linux systems it will attempt to use F</proc/loadavg>.
 
-=head1 COPYRIGHT
+On FreeBSD and OpenBSD systems, it will make a call to C<getloadavg>.
 
- Copyright (c) 1999-2002 Clinton Wong. All rights reserved.
- This program is free software; you can redistribute it
- and/or modify it under the same terms as Perl itself.
+Otherwise, it will attempt to parse the output of C<uptime>.
+
+On error, it will return an array of C<undef> values.
 
 =cut
 
@@ -105,5 +104,11 @@ sub import {
 
     goto &Exporter::import;
 }
+
+=head1 SEE ALSO
+
+L<Sys::CpuLoadX>
+
+=cut
 
 1;
