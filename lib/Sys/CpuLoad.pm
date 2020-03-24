@@ -9,7 +9,7 @@ use v5.6;
 use strict;
 use warnings;
 
-use parent qw(Exporter AutoLoader DynaLoader);
+use parent qw(Exporter DynaLoader);
 
 use IO::File;
 
