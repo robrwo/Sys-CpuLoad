@@ -34,6 +34,10 @@ Otherwise, it will attempt to parse the output of `uptime`.
 
 On error, it will return an array of `undef` values.
 
+# SEE ALSO
+
+[Sys::CpuLoadX](https://metacpan.org/pod/Sys::CpuLoadX)
+
 # SOURCE
 
 The development version is on github at [https://github.com/robrwo/Sys-CpuLoad](https://github.com/robrwo/Sys-CpuLoad)
@@ -50,8 +54,8 @@ feature.
 
 # AUTHORS
 
-- Clinton Wong <clintdw@cpan.org>
 - Robert Rothenberg <rrwo@cpan.org>
+- Clinton Wong <clintdw@cpan.org>
 
 # COPYRIGHT AND LICENSE
 
