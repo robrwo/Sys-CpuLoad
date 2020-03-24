@@ -18,7 +18,7 @@ _getbsdload()
     PREINIT:
         double loadavg[3];
     PPCODE:
-#if defined(__FreeBSD__) || defined(__OpenBSD__) || defined(__APPLE__)
+#if defined(__FreeBSD__) || defined(__OpenBSD__) || defined(__APPLE__) || defined(__linux__)
         getloadavg(loadavg, 3);
 #endif
         EXTEND(SP, 3);

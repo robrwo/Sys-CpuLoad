@@ -1,6 +1,10 @@
 Revision history for Perl extension {{$dist->name}}:
 
 {{$NEXT}}
+  [Enhancements]
+  - Use getloadavg system call in Linux.
+
+  - Port changes for Cygwin from Sys::CpuLoadX.
 
 0.11      2020-03-24 22:57:02+00:00 Europe/London
   [Enhancements]

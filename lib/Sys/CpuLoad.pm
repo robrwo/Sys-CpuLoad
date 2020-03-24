@@ -54,7 +54,14 @@ sub import {
     my $this = __PACKAGE__;
     my $os   = lc $^O;
 
-    if ( -r '/proc/loadavg' && $os eq 'linux' ) {
+    if ( $os =~ /^(darwin|freebsd|openbsd|linux)$/ ) {
+
+        no strict 'refs'; ## no critic (ProhibitNoStrict)
+
+        *{"${this}::load"} = \&_getbsdload;
+
+    }
+    elsif ( -r '/proc/loadavg' && $os ne 'cygwin' ) {
 
         no strict 'refs'; ## no critic (ProhibitNoStrict)
 
@@ -69,13 +76,6 @@ sub import {
             }
             return (undef) x 3;
         };
-
-    }
-    elsif ( $os =~ /^(darwin|freebsd|openbsd)$/ ) {
-
-        no strict 'refs'; ## no critic (ProhibitNoStrict)
-
-        *{"${this}::load"} = \&_getbsdload;
 
     }
     else {
