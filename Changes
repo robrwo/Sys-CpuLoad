@@ -1,6 +1,8 @@
 Revision history for Perl extension {{$dist->name}}:
 
 {{$NEXT}}
+
+0.12      2020-03-24 23:22:57+00:00 Europe/London
   [Enhancements]
   - Use getloadavg system call in Linux.
 
