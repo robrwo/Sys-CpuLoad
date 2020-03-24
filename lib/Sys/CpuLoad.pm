@@ -71,7 +71,7 @@ sub import {
         };
 
     }
-    elsif ( $os eq 'freebsd' || $os eq 'openbsd' ) {
+    elsif ( $os =~ /^(darwin|freebsd|openbsd)$/ ) {
 
         no strict 'refs'; ## no critic (ProhibitNoStrict)
 
