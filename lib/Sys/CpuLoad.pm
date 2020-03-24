@@ -62,7 +62,7 @@ sub load {
 
   # handle linux proc filesystem
   if ($cache eq 'unknown' or $cache eq 'linux') {
-    my $fh = new IO::File('/proc/loadavg', 'r');
+    my $fh = IO::File->new('/proc/loadavg', 'r');
     if (defined $fh) {
       my $line = <$fh>;
       $fh->close();
@@ -79,7 +79,7 @@ sub load {
   local %ENV = %ENV;
   $ENV{'LC_NUMERIC'}='POSIX';    # ensure that decimal separator is a dot
 
-  my $fh=new IO::File('/usr/bin/uptime|');
+  my $fh=IO::File->new('/usr/bin/uptime|');
   if (defined $fh) {
     my $line = <$fh>;
     $fh->close();

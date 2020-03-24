@@ -2,6 +2,9 @@ Revision history for Perl extension Sys::CpuLoad
 
   - Maintenance taken over by Robert Rothenberg.
 
+  [Enhancements]
+  - Modernised code style.
+
   [Bug Fixes]
   - Fixed VERSION.
 
