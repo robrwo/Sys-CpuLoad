@@ -7,6 +7,8 @@ Revision history for Perl extension Sys::CpuLoad
 
   - The load average method is determined during module import.
 
+  - Use XSLoader instead of DynaLoader.
+
   [Bug Fixes]
   - Fixed VERSION.
 

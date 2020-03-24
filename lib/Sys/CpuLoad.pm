@@ -9,16 +9,17 @@ use v5.6;
 use strict;
 use warnings;
 
-use parent qw(Exporter DynaLoader);
+use parent qw(Exporter);
 
 use IO::File;
+use XSLoader;
 
 our @EXPORT    = qw();
 our @EXPORT_OK = qw(load);
 
 our $VERSION = '0.04';
 
-bootstrap Sys::CpuLoad $VERSION;
+XSLoader::load 'Sys::CpuLoad', $VERSION;
 
 =head1 NAME
 
