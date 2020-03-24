@@ -57,6 +57,10 @@ feature.
 - Robert Rothenberg <rrwo@cpan.org>
 - Clinton Wong <clintdw@cpan.org>
 
+# CONTRIBUTOR
+
+Vincent Lefèvre <vincent@vinc17.net>
+
 # COPYRIGHT AND LICENSE
 
 This software is copyright (c) 1999-2002, 2020 by Clinton Wong <clintdw@cpan.org>.
