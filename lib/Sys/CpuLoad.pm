@@ -4,18 +4,19 @@ package Sys::CpuLoad;
 # This program is free software; you can redistribute it
 # and/or modify it under the same terms as Perl itself.
 
+use v5.6;
+
 use strict;
-use vars qw($VERSION @ISA @EXPORT @EXPORT_OK);
+use warnings;
 
-require Exporter;
-require DynaLoader;
-require AutoLoader;
+use parent qw(Exporter AutoLoader DynaLoader);
 
-@ISA = qw(Exporter AutoLoader DynaLoader);
+use IO::File;
 
-@EXPORT = qw();
-@EXPORT_OK = qw(load);
-$VERSION = '0.04';
+our @EXPORT = qw();
+our @EXPORT_OK = qw(load);
+
+our $VERSION = '0.04';
 
 bootstrap Sys::CpuLoad $VERSION;
 
@@ -47,8 +48,6 @@ Maintained since 2020 by Robert Rothenberg <rrwo@cpan.org>.
  and/or modify it under the same terms as Perl itself.
 
 =cut
-
-use IO::File;
 
 my $cache = 'unknown';
 

@@ -8,6 +8,9 @@ Revision history for Perl extension Sys::CpuLoad
   [Bug Fixes]
   - Fixed VERSION.
 
+  [Incompatabilities]
+  - Minimum version is v5.6.
+
   [Documentation]
   - Reformatted Changes to conform to CPAN::Changes::Spec.
 
