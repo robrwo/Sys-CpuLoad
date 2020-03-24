@@ -56,7 +56,7 @@ sub import {
 
     if ( -r '/proc/loadavg' && $os eq 'linux' ) {
 
-        no strict 'refs';
+        no strict 'refs'; ## no critic (ProhibitNoStrict)
 
         *{"${this}::load"} = sub {
             my $fh = IO::File->new( '/proc/loadavg', 'r' );
@@ -73,14 +73,14 @@ sub import {
     }
     elsif ( $os eq 'freebsd' || $os eq 'openbsd' ) {
 
-        no strict 'refs';
+        no strict 'refs'; ## no critic (ProhibitNoStrict)
 
-        *{"${this}::load"} = \&getbsdload;
+        *{"${this}::load"} = \&_getbsdload;
 
     }
     else {
 
-        no strict 'refs';
+        no strict 'refs'; ## no critic (ProhibitNoStrict)
 
         *{"${this}::load"} = sub {
 
