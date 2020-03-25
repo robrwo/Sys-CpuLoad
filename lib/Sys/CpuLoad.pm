@@ -19,7 +19,7 @@ use XSLoader;
 our @EXPORT    = qw();
 our @EXPORT_OK = qw(load);
 
-our $VERSION = '0.13';
+our $VERSION = '0.20';
 
 XSLoader::load 'Sys::CpuLoad', $VERSION;
 
