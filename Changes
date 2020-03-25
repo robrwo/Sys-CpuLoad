@@ -5,6 +5,8 @@ Revision history for Perl extension {{$dist->name}}:
   - Test that getloadavg system call works before opting to use that
     method.
 
+  - Add support for NetBSD #2 and Solaris.
+
   [Bug Fixes]
   - The return value of getloadavg is now checked, #4.
 
