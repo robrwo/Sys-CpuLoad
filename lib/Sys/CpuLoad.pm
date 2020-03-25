@@ -54,7 +54,7 @@ sub import {
     my $this = __PACKAGE__;
     my $os   = lc $^O;
 
-    if ( $os =~ /^(darwin|freebsd|openbsd|linux)$/ ) {
+    if ( _getbsdload() ) {
 
         no strict 'refs'; ## no critic (ProhibitNoStrict)
 

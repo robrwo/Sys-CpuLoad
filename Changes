@@ -1,6 +1,10 @@
 Revision history for Perl extension {{$dist->name}}:
 
 {{$NEXT}}
+  [Enhancements]
+  - Test that getloadavg system call works before opting to use that
+    method.
+
   [Bug Fixes]
   - The return value of getloadavg is now checked, #4.
 
