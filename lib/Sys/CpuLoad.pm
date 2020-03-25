@@ -54,7 +54,7 @@ sub BEGIN {
     my $this = __PACKAGE__;
     my $os   = lc $^O;
 
-    if ( $os =~ /^(darwin|freebsd|openbsd|linux)$/ ) {
+    if ( $os =~ /^(darwin|(free|net|open)bsd|linux|solaris|sunos)$/ ) {
 
         no strict 'refs'; ## no critic (ProhibitNoStrict)
 

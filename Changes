@@ -1,6 +1,8 @@
 Revision history for Perl extension {{$dist->name}}:
 
 {{$NEXT}}
+  [Bug Fixes]
+  - Actually use system getloadavg for NetBSD and Solaris.
 
 0.20      2020-03-25 12:35:33+00:00 Europe/London
   [Enhancements]
