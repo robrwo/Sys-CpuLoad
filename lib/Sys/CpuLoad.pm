@@ -39,9 +39,9 @@ of a machine.
 This method returns the load average for 1 minute, 5 minutes and 15
 minutes as an array.
 
-On Linux systems it will attempt to use F</proc/loadavg>.
+On Linux, FreeBSD and OpenBSD systems, it will make a call to C<getloadavg>.
 
-On FreeBSD and OpenBSD systems, it will make a call to C<getloadavg>.
+If F</proc/loadavg> is available, it will attempt to parse the file.
 
 Otherwise, it will attempt to parse the output of C<uptime>.
 
