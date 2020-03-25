@@ -49,7 +49,7 @@ On error, it will return an array of C<undef> values.
 
 =cut
 
-sub import {
+sub BEGIN {
 
     my $this = __PACKAGE__;
     my $os   = lc $^O;
@@ -102,7 +102,6 @@ sub import {
         };
     }
 
-    goto &Exporter::import;
 }
 
 =head1 SEE ALSO

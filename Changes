@@ -9,6 +9,8 @@ Revision history for Perl extension {{$dist->name}}:
   [Bug Fixes]
   - The return value of getloadavg is now checked, #4.
 
+  - The load method is set up in a BEGIN block instead of import, #5.
+
   [Documentation]
   - Update POD about changes in version 0.12.
 
