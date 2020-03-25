@@ -2,9 +2,6 @@ Revision history for Perl extension {{$dist->name}}:
 
 {{$NEXT}}
   [Enhancements]
-  - Test that getloadavg system call works before opting to use that
-    method.
-
   - Add support for NetBSD #2 and Solaris.
 
   - Return a single undef when the load function fails.
