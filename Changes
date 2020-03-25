@@ -1,6 +1,9 @@
 Revision history for Perl extension {{$dist->name}}:
 
 {{$NEXT}}
+  [Bug Fixes]
+  - The return value of getloadavg is now checked, #4.
+
   [Documentation]
   - Update POD about changes in version 0.12.
 

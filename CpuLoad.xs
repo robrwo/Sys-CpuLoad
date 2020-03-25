@@ -17,11 +17,19 @@ void
 _getbsdload()
     PREINIT:
         double loadavg[3];
+        int    nelem;
     PPCODE:
 #if defined(__FreeBSD__) || defined(__OpenBSD__) || defined(__APPLE__) || defined(__linux__)
-        getloadavg(loadavg, 3);
+        nelem = getloadavg(loadavg, 3);
+#else
+        nelem = -1;
 #endif
-        EXTEND(SP, 3);
-        PUSHs(sv_2mortal(newSVnv(loadavg[0])));
-        PUSHs(sv_2mortal(newSVnv(loadavg[1])));
-        PUSHs(sv_2mortal(newSVnv(loadavg[2])));
+        if (nelem != -1) {
+          EXTEND(SP, 3);
+          PUSHs(sv_2mortal(newSVnv(loadavg[0])));
+          PUSHs(sv_2mortal(newSVnv(loadavg[1])));
+          PUSHs(sv_2mortal(newSVnv(loadavg[2])));
+        }
+        else {
+          XSRETURN_UNDEF;
+        }
