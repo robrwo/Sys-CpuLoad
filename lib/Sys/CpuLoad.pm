@@ -74,7 +74,7 @@ sub import {
                     return ( $1, $2, $3 );
                 }
             }
-            return (undef) x 3;
+            return undef; ## no critic (ProhibitExplicitReturnUndef)
         };
 
     }
@@ -98,7 +98,7 @@ sub import {
                     return ( $1, $2, $3 );
                 }
             }
-            return (undef) x 3;
+            return undef; ## no critic (ProhibitExplicitReturnUndef)
         };
     }
 

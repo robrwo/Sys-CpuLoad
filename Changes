@@ -7,6 +7,8 @@ Revision history for Perl extension {{$dist->name}}:
 
   - Add support for NetBSD #2 and Solaris.
 
+  - Return a single undef when the load function fails.
+
   [Bug Fixes]
   - The return value of getloadavg is now checked, #4.
 
