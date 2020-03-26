@@ -26,13 +26,43 @@ of a machine.
 This method returns the load average for 1 minute, 5 minutes and 15
 minutes as an array.
 
-On Linux, FreeBSD and OpenBSD systems, it will make a call to `getloadavg`.
+On Linux, Solaris, FreeBSD, NetBSD and OpenBSD systems, it will make a
+call to ["getloadavg"](#getloadavg).
 
-If `/proc/loadavg` is available, it will attempt to parse the file.
+If `/proc/loadavg` is available on non-Cygwin systems, it
+will call ["proc\_loadavg"](#proc_loadavg).
 
 Otherwise, it will attempt to parse the output of `uptime`.
 
 On error, it will return an array of `undef` values.
+
+If you are writing code to work on multiple systems, you should use
+this function.  But if your code is intended for specific systems,
+then you should use the appropriate function.
+
+## getloadavg
+
+This is a wrapper around the system call to `getloadavg`.
+
+If this call is unavailable, or it is fails, it will return `undef`.
+
+Added in v0.22.
+
+## proc\_loadavg
+
+If `/proc/loadavg` is available, it will be used.
+
+If the data cannot be parsed, it will return `undef`.
+
+Added in v0.22.
+
+## uptime
+
+Parse the output of uptime.
+
+If the output cannot be parsed, it will return `undef`.
+
+Added in v0.22.
 
 # SEE ALSO
 

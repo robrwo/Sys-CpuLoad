@@ -14,7 +14,7 @@ extern "C" {
 MODULE = Sys::CpuLoad		PACKAGE = Sys::CpuLoad
 
 void
-_getbsdload()
+getloadavg()
     PREINIT:
         double loadavg[3];
         int    nelem;
