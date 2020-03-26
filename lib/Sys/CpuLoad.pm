@@ -106,7 +106,7 @@ sub uptime {
         my $line = <$fh>;
         $fh->close();
         if ( $line =~
-             /(\d+\.\d+)\s*,\s+(\d+\.\d+)\s*,\s+(\d+\.\d+)\s*$/ )
+             /(\d+\.\d+)\s*,?\s+(\d+\.\d+)\s*,?\s+(\d+\.\d+)\s*$/ )
         {
             return ( $1, $2, $3 );
         }
