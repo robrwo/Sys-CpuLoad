@@ -4,6 +4,8 @@ Revision history for Perl extension {{$dist->name}}:
   [Enhancements]
   - Split getloadavg, proc_loadavg and uptime into separate functions.
 
+  - Use File::Which to locate uptime.
+
   [Incompatabilities]
   - Renamed _getbsdload to getloadavg.
 

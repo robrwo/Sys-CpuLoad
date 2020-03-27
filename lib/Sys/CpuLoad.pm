@@ -13,6 +13,7 @@ use warnings;
 
 use parent qw(Exporter);
 
+use File::Which qw(which);
 use IO::File;
 use XSLoader;
 
@@ -96,12 +97,15 @@ sub proc_loadavg {
     return undef;    ## no critic (ProhibitExplicitReturnUndef)
 }
 
+my $uptime;
+
 sub uptime {
     local %ENV = %ENV;
-    $ENV{'LC_NUMERIC'} =
-        'POSIX';    # ensure that decimal separator is a dot
+    $ENV{'LC_NUMERIC'} = 'POSIX'; # ensure that decimal separator is a dot
 
-    my $fh = IO::File->new('/usr/bin/uptime|');
+    $uptime ||= which("uptime");
+
+    my $fh = IO::File->new("${uptime}|");
     if ( defined $fh ) {
         my $line = <$fh>;
         $fh->close();
