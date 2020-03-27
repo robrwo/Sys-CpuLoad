@@ -10,6 +10,9 @@ Revision history for Perl extension {{$dist->name}}:
   [Bug Fixes]
   - Accept uptime output without commas, RT#14034.
 
+  [Tests]
+  - Fix bug testing high loads.
+
 0.21      2020-03-25 13:03:11+00:00 Europe/London
   [Bug Fixes]
   - Actually use system getloadavg for NetBSD and Solaris.
