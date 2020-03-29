@@ -1,5 +1,9 @@
 use Test::Most;
 
+use File::Which qw/ which /;
+
+plan skip_all => "no uptime found"
+    unless which("uptime");
 
 use_ok 'Sys::CpuLoad', 'uptime';
 
