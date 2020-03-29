@@ -124,7 +124,7 @@ sub BEGIN {
     my $this = __PACKAGE__;
     my $os   = lc $^O;
 
-    if ( $os =~ /^(darwin|(free|net|open)bsd|linux|solaris|sunos)$/ ) {
+    if ( $os =~ /^(darwin|dragonfly|(free|net|open)bsd|linux|solaris|sunos)$/ ) {
         no strict 'refs'; ## no critic (ProhibitNoStrict)
         *{"${this}::load"} = \&getloadavg;
     }
