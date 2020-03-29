@@ -103,7 +103,8 @@ sub uptime {
     local %ENV = %ENV;
     $ENV{'LC_NUMERIC'} = 'POSIX'; # ensure that decimal separator is a dot
 
-    $uptime ||= which("uptime");
+    $uptime ||= which("uptime") or
+        return undef; ## no critic (ProhibitExplicitReturnUndef)
 
     my $fh = IO::File->new("${uptime}|");
     if ( defined $fh ) {

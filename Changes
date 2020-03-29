@@ -4,6 +4,9 @@ Revision history for Perl extension {{$dist->name}}:
   [Enhancements]
   - Support getloadavg for DragonFly BSD.
 
+  [Bug Fixes]
+  - uptime immediately returns undef if path to `uptime` cannot be found.
+
   [Tests]
   - Fixed test when skipping getloadavg test.
 
