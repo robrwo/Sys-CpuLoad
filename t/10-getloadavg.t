@@ -2,7 +2,7 @@ use Test::Most;
 
 my $os = lc $^O;
 
-plan skip_all $os
+plan skip_all => $os
     if $os !~ /^(darwin|dragonfly|(free|net|open)bsd|linux|solaris|sunos)$/;
 
 use_ok 'Sys::CpuLoad', 'getloadavg';
