@@ -106,18 +106,12 @@ sub uptime {
     $uptime ||= which("uptime") or
         return undef; ## no critic (ProhibitExplicitReturnUndef)
 
-    my $fh = IO::File->new("${uptime}|");
-    if ( defined $fh ) {
-        my $line = <$fh>;
-        $fh->close();
-        if ( $line =~
-             /(\d+\.\d+)\s*,?\s+(\d+\.\d+)\s*,?\s+(\d+\.\d+)\s*$/ )
-        {
-            return ( $1, $2, $3 );
-        }
+    my $line = `$uptime`;
+    if ( $line =~ /(\d+\.\d+)\s*,?\s+(\d+\.\d+)\s*,?\s+(\d+\.\d+)\s*$/ )
+    {
+        return ( $1, $2, $3 );
     }
     return undef; ## no critic (ProhibitExplicitReturnUndef)
-
 }
 
 sub BEGIN {
