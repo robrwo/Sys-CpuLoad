@@ -4,6 +4,8 @@ Revision history for Perl extension {{$dist->name}}:
   [Tests]
   - Check if uptime is executable.
 
+  - Fix comment on t/13-w.t.
+
 0.24      2020-03-30 12:25:45+01:00 Europe/London (TRIAL RELEASE)
   [Enhancements]
   - Use IPC::Run3 for uptime.
