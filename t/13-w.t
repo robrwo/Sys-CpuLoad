@@ -2,14 +2,16 @@ use Test::Most;
 
 use File::Which qw/ which /;
 
+my $path = which("w");
+
 plan skip_all => "no uptime found"
-    unless which("w");
+    unless -x $path;
 
 use_ok 'Sys::CpuLoad', 'uptime';
 
 no warnings 'once';
 
-$Sys::CpuLoad::UPTIME = which("w");
+$Sys::CpuLoad::UPTIME = $path;
 
 my @load = uptime();
 
