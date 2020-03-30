@@ -4,6 +4,8 @@ Revision history for Perl extension {{$dist->name}}:
   [Enhancements]
   - Use IPC::Run3 for uptime.
 
+  - Add the ability to override the path of uptime.
+
 0.23      2020-03-29 13:09:50+01:00 Europe/London (TRIAL RELEASE)
   [Enhancements]
   - Support getloadavg for DragonFly BSD.

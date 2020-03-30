@@ -60,9 +60,21 @@ Added in v0.22.
 
 Parse the output of uptime.
 
-If the output cannot be parsed, it will return `undef`.
+If the [uptime](https://metacpan.org/pod/uptime) executable cannot be found, or the output cannot be
+parsed, it will return `undef`.
 
 Added in v0.22.
+
+As of v0.24, you can override the executable path by setting
+`$Sys::CpuLoad::UPTIME`, e.g.
+
+```perl
+use Sys::CpuLoad 'uptime';
+
+$Sys::CpuLoad::UPTIME = '/usr/bin/w';
+
+@load = uptime();
+```
 
 # SEE ALSO
 

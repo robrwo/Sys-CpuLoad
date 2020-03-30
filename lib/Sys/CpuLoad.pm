@@ -75,9 +75,21 @@ Added in v0.22.
 
 Parse the output of uptime.
 
-If the output cannot be parsed, it will return C<undef>.
+If the L<uptime> executable cannot be found, or the output cannot be
+parsed, it will return C<undef>.
 
 Added in v0.22.
+
+As of v0.24, you can override the executable path by setting
+C<$Sys::CpuLoad::UPTIME>, e.g.
+
+  use Sys::CpuLoad 'uptime';
+
+  no warnings 'once';
+
+  $Sys::CpuLoad::UPTIME = '/usr/bin/w';
+
+  @load = uptime();
 
 =cut
 
@@ -98,17 +110,17 @@ sub proc_loadavg {
     return undef;    ## no critic (ProhibitExplicitReturnUndef)
 }
 
-my $uptime;
+our $UPTIME;
 
 sub uptime {
     local %ENV = %ENV;
     $ENV{'LC_NUMERIC'} = 'POSIX'; # ensure that decimal separator is a dot
 
-    $uptime ||= which("uptime") or
+    $UPTIME ||= which("uptime") or
         return undef; ## no critic (ProhibitExplicitReturnUndef)
 
-    run3($uptime, \undef, \my $line);
-    if ( $line =~ /(\d+\.\d+)\s*,?\s+(\d+\.\d+)\s*,?\s+(\d+\.\d+)\s*$/ )
+    run3($UPTIME, \undef, \my $line);
+    if ( $line =~ /(\d+\.\d+)\s*,?\s+(\d+\.\d+)\s*,?\s+(\d+\.\d+)\s*$/m )
     {
         return ( $1, $2, $3 );
     }
