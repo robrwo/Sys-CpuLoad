@@ -6,6 +6,9 @@ Revision history for Perl extension {{$dist->name}}:
 
   - Add the ability to override the path of uptime.
 
+  [Bug Fixes]
+  - Check for uptime errors.
+
   [Other]
   - Move Perl::Critic exceptions into t/etc/perlcriticrc.
 
