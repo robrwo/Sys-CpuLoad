@@ -71,6 +71,8 @@ As of v0.24, you can override the executable path by setting
 ```perl
 use Sys::CpuLoad 'uptime';
 
+no warnings 'once';
+
 $Sys::CpuLoad::UPTIME = '/usr/bin/w';
 
 @load = uptime();

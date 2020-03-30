@@ -120,6 +120,7 @@ sub uptime {
         return undef; ## no critic (ProhibitExplicitReturnUndef)
 
     run3($UPTIME, \undef, \my $line);
+    return undef if $? || !defined($line); ## no critic (ProhibitExplicitReturnUndef)
     if ( $line =~ /(\d+\.\d+)\s*,?\s+(\d+\.\d+)\s*,?\s+(\d+\.\d+)\s*$/m )
     {
         return ( $1, $2, $3 );
