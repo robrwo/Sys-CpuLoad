@@ -107,7 +107,7 @@ sub proc_loadavg {
         }
     }
 
-    return undef;    ## no critic (ProhibitExplicitReturnUndef)
+    return undef;
 }
 
 our $UPTIME;
@@ -117,15 +117,15 @@ sub uptime {
     $ENV{'LC_NUMERIC'} = 'POSIX'; # ensure that decimal separator is a dot
 
     $UPTIME ||= which("uptime") or
-        return undef; ## no critic (ProhibitExplicitReturnUndef)
+        return undef;
 
     run3($UPTIME, \undef, \my $line);
-    return undef if $? || !defined($line); ## no critic (ProhibitExplicitReturnUndef)
+    return undef if $? || !defined($line);
     if ( $line =~ /(\d+\.\d+)\s*,?\s+(\d+\.\d+)\s*,?\s+(\d+\.\d+)\s*$/m )
     {
         return ( $1, $2, $3 );
     }
-    return undef; ## no critic (ProhibitExplicitReturnUndef)
+    return undef;
 }
 
 sub BEGIN {
