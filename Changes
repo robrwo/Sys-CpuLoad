@@ -1,6 +1,8 @@
 Revision history for Perl extension {{$dist->name}}:
 
 {{$NEXT}}
+  [Enhancements]
+  - Use IPC::Run3 for uptime.
 
 0.23      2020-03-29 13:09:50+01:00 Europe/London (TRIAL RELEASE)
   [Enhancements]

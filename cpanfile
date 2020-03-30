@@ -4,6 +4,7 @@
 requires "Exporter" => "0";
 requires "File::Which" => "0";
 requires "IO::File" => "0";
+requires "IPC::Run3" => "0";
 requires "XSLoader" => "0";
 requires "parent" => "0";
 requires "perl" => "v5.6.0";

@@ -15,6 +15,7 @@ use parent qw(Exporter);
 
 use File::Which qw(which);
 use IO::File;
+use IPC::Run3 qw(run3);
 use XSLoader;
 
 our @EXPORT    = qw();
@@ -106,7 +107,7 @@ sub uptime {
     $uptime ||= which("uptime") or
         return undef; ## no critic (ProhibitExplicitReturnUndef)
 
-    my $line = `$uptime`;
+    run3($uptime, \undef, \my $line);
     if ( $line =~ /(\d+\.\d+)\s*,?\s+(\d+\.\d+)\s*,?\s+(\d+\.\d+)\s*$/ )
     {
         return ( $1, $2, $3 );
