@@ -4,8 +4,8 @@ use File::Which qw/ which /;
 
 my $path = which("w");
 
-plan skip_all => "no uptime found"
-    unless -x $path;
+plan skip_all => "no w found"
+    unless $path && -x $path;
 
 use_ok 'Sys::CpuLoad', 'uptime';
 
