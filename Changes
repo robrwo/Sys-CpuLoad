@@ -9,6 +9,9 @@ Revision history for Perl extension {{$dist->name}}:
 
   - Fix comment on skip_all.
 
+  [Other]
+  - Add keywords to distribution metadata.
+
 0.25      2020-03-30 23:30:00+01:00 Europe/London (TRIAL RELEASE)
   [Tests]
   - Check if uptime is executable.
