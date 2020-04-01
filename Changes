@@ -1,6 +1,9 @@
 Revision history for Perl extension {{$dist->name}}:
 
 {{$NEXT}}
+  [Bug Fixes]
+  - Parse uptime output formatted with using different locales, thanks srezic.
+
   [Tests]
   - Fix skip_all to handle when no executable is found.
 

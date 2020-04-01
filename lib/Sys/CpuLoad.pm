@@ -121,7 +121,7 @@ sub uptime {
 
     run3($UPTIME, \undef, \my $line);
     return undef if $? || !defined($line);
-    if ( $line =~ /(\d+\.\d+)\s*,?\s+(\d+\.\d+)\s*,?\s+(\d+\.\d+)\s*$/m )
+    if ( $line =~ /(\d+[,.]\d+)\s*,?\s+(\d+[,.]\d+)\s*,?\s+(\d+[,.]\d+)\s*$/m )
     {
         return ( $1, $2, $3 );
     }

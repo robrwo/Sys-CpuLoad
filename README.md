@@ -101,9 +101,10 @@ feature.
 - Robert Rothenberg <rrwo@cpan.org>
 - Clinton Wong <clintdw@cpan.org>
 
-# CONTRIBUTOR
+# CONTRIBUTORS
 
-Vincent Lefèvre <vincent@vinc17.net>
+- Slaven Rezić <slaven@rezic.de>
+- Vincent Lefèvre <vincent@vinc17.net>
 
 # COPYRIGHT AND LICENSE
 
