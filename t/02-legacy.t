@@ -1,4 +1,5 @@
 use Test::Most;
+use Scalar::Util 'looks_like_number';
 
 use Sys::CpuLoad ();
 
@@ -6,7 +7,7 @@ my @load = Sys::CpuLoad::load();
 
 cmp_deeply
   \@load,
-  [ (re(qr/^\d+(\.\d+)?(e[\-\+]\d+)?$/)) x 3 ], 'load';
+  [ (code(\&looks_like_number)) x 3 ], 'load';
 
 diag "@load";
 

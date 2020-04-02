@@ -1,4 +1,5 @@
 use Test::Most;
+use Scalar::Util 'looks_like_number';
 
 plan skip_all => "no /proc/loadavg"
    unless -r "/proc/loadavg";
@@ -9,7 +10,7 @@ my @load = proc_loadavg();
 
 cmp_deeply
   \@load,
-  [ (re(qr/^\d+(\.\d+)?(e[\-\+]\d+)?$/)) x 3 ], 'proc_loadavg';
+  [ (code(\&looks_like_number)) x 3 ], 'load';
 
 diag "@load";
 

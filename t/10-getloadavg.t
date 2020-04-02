@@ -1,4 +1,5 @@
 use Test::Most;
+use Scalar::Util 'looks_like_number';
 
 my $os = lc $^O;
 
@@ -11,7 +12,7 @@ my @load = getloadavg();
 
 cmp_deeply
   \@load,
-  [ (re(qr/^\d+(\.\d+)?(e[\-\+]\d+)?$/)) x 3 ], 'getloadavg';
+  [ (code(\&looks_like_number)) x 3 ], 'load';
 
 diag "@load";
 

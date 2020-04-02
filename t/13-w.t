@@ -1,6 +1,6 @@
 use Test::Most;
-
 use File::Which qw/ which /;
+use Scalar::Util 'looks_like_number';
 
 my $path = which("w");
 
@@ -17,7 +17,7 @@ my @load = uptime();
 
 cmp_deeply
   \@load,
-  [ (re(qr/^\d+(\.\d+)?(e[\-\+]\d+)?$/)) x 3 ], 'uptime (w)';
+  [ (code(\&looks_like_number)) x 3 ], 'load';
 
 diag "@load";
 

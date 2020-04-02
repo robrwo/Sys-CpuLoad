@@ -1,6 +1,8 @@
 Revision history for Perl extension {{$dist->name}}:
 
 {{$NEXT}}
+  [Tests]
+  - Use locale-independent test that value is numeric.
 
 0.26      2020-04-01 21:22:26+01:00 Europe/London (TRIAL RELEASE)
   [Bug Fixes]
