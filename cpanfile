@@ -15,6 +15,7 @@ on 'test' => sub {
   requires "Scalar::Util" => "0";
   requires "Test::More" => "0";
   requires "Test::Most" => "0";
+  requires "Test::Warnings" => "0";
 };
 
 on 'test' => sub {

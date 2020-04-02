@@ -1,4 +1,6 @@
 use Test::Most;
+use Test::Warnings;
+
 use File::Which qw/ which /;
 use Scalar::Util 'looks_like_number';
 

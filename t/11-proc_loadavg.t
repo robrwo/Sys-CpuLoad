@@ -1,4 +1,6 @@
 use Test::Most;
+use Test::Warnings;
+
 use Scalar::Util 'looks_like_number';
 
 plan skip_all => "no /proc/loadavg"
