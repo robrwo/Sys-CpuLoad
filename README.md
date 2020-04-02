@@ -4,7 +4,7 @@ Sys::CpuLoad - retrieve system load averages
 
 # VERSION
 
-version 0.27
+version 0.28
 
 # SYNOPSIS
 
