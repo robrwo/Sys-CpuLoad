@@ -1,6 +1,9 @@
 Revision history for Perl extension {{$dist->name}}:
 
 {{$NEXT}}
+  [Bug Fixes]
+  - Numify parsed values from uptime.
+
   [Tests]
   - Use locale-independent test that value is numeric.
 

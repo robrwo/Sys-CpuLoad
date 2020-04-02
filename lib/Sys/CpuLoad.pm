@@ -123,7 +123,7 @@ sub uptime {
     return undef if $? || !defined($line);
     if ( $line =~ /(\d+[,.]\d+)\s*,?\s+(\d+[,.]\d+)\s*,?\s+(\d+[,.]\d+)\s*$/m )
     {
-        return ( $1, $2, $3 );
+        return ( map { $_ + 0 } ( $1, $2, $3 ) );
     }
     return undef;
 }
