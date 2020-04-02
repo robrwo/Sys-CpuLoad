@@ -21,7 +21,7 @@ use XSLoader;
 our @EXPORT    = qw();
 our @EXPORT_OK = qw(load getloadavg proc_loadavg uptime);
 
-our $VERSION = '0.28';
+our $VERSION = '0.29';
 
 XSLoader::load 'Sys::CpuLoad', $VERSION;
 
