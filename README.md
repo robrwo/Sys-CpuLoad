@@ -104,6 +104,8 @@ feature.
 # CONTRIBUTORS
 
 - Slaven Rezić <slaven@rezic.de>
+- Victor Wagner
+- Dmitry Dorofeev <dima@yasp.com>
 - Vincent Lefèvre <vincent@vinc17.net>
 
 # COPYRIGHT AND LICENSE
