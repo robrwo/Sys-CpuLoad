@@ -13,6 +13,9 @@ Revision history for Perl extension {{$dist->name}}:
   - Use Test::More and Test::Deep instead of Test::Most,
     due to global destruction warnings in latest Test::Most.
 
+  [Other]
+  - Rearrange POD to be interleaved with source code.
+
 0.28      2020-04-02 17:35:22+01:00 Europe/London (TRIAL RELEASE)
   [Bug Fixes]
   - Fix how parsed values from uptime are numified for different locales.

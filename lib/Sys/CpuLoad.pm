@@ -93,6 +93,25 @@ If the data cannot be parsed, it will return C<undef>.
 
 Added in v0.22.
 
+=cut
+
+sub proc_loadavg {
+
+    if ( -r '/proc/loadavg' ) {
+
+        my $fh = IO::File->new( '/proc/loadavg', 'r' );
+        if ( defined $fh ) {
+            my $line = <$fh>;
+            $fh->close();
+            if ( $line =~ /^(\d+\.\d+)\s+(\d+\.\d+)\s+(\d+\.\d+)/ ) {
+                return ( $1, $2, $3 );
+            }
+        }
+    }
+
+    return undef;
+}
+
 =head2 uptime
 
 Parse the output of uptime.
@@ -114,23 +133,6 @@ C<$Sys::CpuLoad::UPTIME>, e.g.
   @load = uptime();
 
 =cut
-
-sub proc_loadavg {
-
-    if ( -r '/proc/loadavg' ) {
-
-        my $fh = IO::File->new( '/proc/loadavg', 'r' );
-        if ( defined $fh ) {
-            my $line = <$fh>;
-            $fh->close();
-            if ( $line =~ /^(\d+\.\d+)\s+(\d+\.\d+)\s+(\d+\.\d+)/ ) {
-                return ( $1, $2, $3 );
-            }
-        }
-    }
-
-    return undef;
-}
 
 our $UPTIME;
 
