@@ -1,6 +1,9 @@
 Revision history for Perl extension {{$dist->name}}:
 
 {{$NEXT}}
+  [Enhancements]
+  - Added support for changing the default load() function.
+
   [Tests]
   - Test for warnings.
 

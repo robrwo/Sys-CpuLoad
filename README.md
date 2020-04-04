@@ -36,8 +36,21 @@ Otherwise, it will attempt to parse the output of `uptime`.
 
 On error, it will return an array of `undef` values.
 
+As of v0.29, you can override the default function by changing
+`$Sys::CpuLoad::LOAD`:
+
+```perl
+use Sys::CpuLoad 'load';
+
+no warnings 'once';
+
+$Sys::CpuLoad::LOAD = 'uptimr';
+
+@load = load();
+```
+
 If you are writing code to work on multiple systems, you should use
-this function.  But if your code is intended for specific systems,
+the `load` function.  But if your code is intended for specific systems,
 then you should use the appropriate function.
 
 ## getloadavg

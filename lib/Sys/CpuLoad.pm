@@ -51,9 +51,31 @@ Otherwise, it will attempt to parse the output of C<uptime>.
 
 On error, it will return an array of C<undef> values.
 
+As of v0.29, you can override the default function by changing
+C<$Sys::CpuLoad::LOAD>:
+
+  use Sys::CpuLoad 'load';
+
+  no warnings 'once';
+
+  $Sys::CpuLoad::LOAD = 'uptimr';
+
+  @load = load();
+
 If you are writing code to work on multiple systems, you should use
-this function.  But if your code is intended for specific systems,
+the C<load> function.  But if your code is intended for specific systems,
 then you should use the appropriate function.
+
+=cut
+
+our $LOAD;
+
+sub load {
+    return getloadavg(@_)   if $LOAD eq 'getloadavg';
+    return proc_loadavg(@_) if $LOAD eq 'proc_loadavg';
+    return uptime(@_)       if $LOAD eq 'uptime';
+    die "Unknown function: $LOAD";
+}
 
 =export getloadavg
 
@@ -134,16 +156,13 @@ sub BEGIN {
     my $os   = lc $^O;
 
     if ( $os =~ /^(darwin|dragonfly|(free|net|open)bsd|linux|solaris|sunos)$/ ) {
-        no strict 'refs'; ## no critic (ProhibitNoStrict)
-        *{"${this}::load"} = \&getloadavg;
+        $LOAD = 'getloadavg';
     }
     elsif ( -r '/proc/loadavg' && $os ne 'cygwin' ) {
-        no strict 'refs'; ## no critic (ProhibitNoStrict)
-        *{"${this}::load"} = \&proc_loadavg;
+        $LOAD = 'proc_loadavg';
     }
     else {
-        no strict 'refs'; ## no critic (ProhibitNoStrict)
-        *{"${this}::load"} = \&uptime;
+        $LOAD = 'uptime';
     }
 
 }
