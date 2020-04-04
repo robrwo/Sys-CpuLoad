@@ -1,6 +1,8 @@
 Revision history for Perl extension {{$dist->name}}:
 
 {{$NEXT}}
+
+0.29      2020-04-04 11:13:49+01:00 Europe/London (TRIAL RELEASE)
   [Enhancements]
   - Added support for changing the default load() function.
 
