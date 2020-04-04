@@ -1,4 +1,5 @@
-use Test::Most;
+use Test::More;
+use Test::Deep;
 use Test::Warnings;
 
 use Scalar::Util 'looks_like_number';

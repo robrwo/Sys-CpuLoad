@@ -4,6 +4,9 @@ Revision history for Perl extension {{$dist->name}}:
   [Tests]
   - Test for warnings.
 
+  - Use Test::More and Test::Deep instead of Test::Most,
+    due to global destruction warnings in latest Test::Most.
+
   [Documentation]
   - Added contributors names in Changes for earlier versions.
 

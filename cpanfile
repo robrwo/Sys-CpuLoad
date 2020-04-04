@@ -13,8 +13,8 @@ on 'test' => sub {
   requires "File::Spec" => "0";
   requires "Module::Metadata" => "0";
   requires "Scalar::Util" => "0";
+  requires "Test::Deep" => "0";
   requires "Test::More" => "0";
-  requires "Test::Most" => "0";
   requires "Test::Warnings" => "0";
 };
 
