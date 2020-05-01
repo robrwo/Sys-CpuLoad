@@ -1,8 +1,11 @@
 Revision history for Perl extension {{$dist->name}}:
 
 {{$NEXT}}
+  [Documentation]
+  - Added missing line to Changes for v0.30.
 
 0.30      2020-04-06 08:14:52+01:00 Europe/London
+  - No changes since v0.29.
 
 0.29      2020-04-04 11:13:49+01:00 Europe/London (TRIAL RELEASE)
   [Enhancements]
