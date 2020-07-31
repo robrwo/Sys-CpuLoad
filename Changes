@@ -4,6 +4,9 @@ Revision history for Perl extension {{$dist->name}}:
   [Documentation]
   - Added missing line to Changes for v0.30.
 
+  [Toolchain]
+  - Add core modules in the prerequisites.
+
 0.30      2020-04-06 08:14:52+01:00 Europe/London
   - No changes since v0.29.
 

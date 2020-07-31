@@ -8,6 +8,8 @@ requires "IPC::Run3" => "0";
 requires "XSLoader" => "0";
 requires "parent" => "0";
 requires "perl" => "v5.6.0";
+requires "strict" => "0";
+requires "warnings" => "0";
 
 on 'test' => sub {
   requires "File::Spec" => "0";
