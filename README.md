@@ -123,7 +123,7 @@ feature.
 
 # COPYRIGHT AND LICENSE
 
-This software is copyright (c) 1999-2002, 2020 by Clinton Wong <clintdw@cpan.org>.
+This software is copyright (c) 1999-2002, 2020, 2025 by Clinton Wong <clintdw@cpan.org>.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

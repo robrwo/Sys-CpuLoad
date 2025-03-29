@@ -1,6 +1,8 @@
 Revision history for Perl extension {{$dist->name}}:
 
 {{$NEXT}}
+  [Documentation]
+  - Updated copyright year.
 
 0.31      2020-07-31 14:23:19+01:00 Europe/London
   [Documentation]
