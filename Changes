@@ -1,6 +1,8 @@
 Revision history for Perl extension {{$dist->name}}:
 
 {{$NEXT}}
+
+0.32      2025-03-29 12:02:43+00:00 Europe/London
   [Documentation]
   - Added a security policy.
 
