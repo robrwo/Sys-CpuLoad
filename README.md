@@ -93,7 +93,7 @@ $Sys::CpuLoad::UPTIME = '/usr/bin/w';
 
 # SEE ALSO
 
-[Sys::CpuLoadX](https://metacpan.org/pod/Sys::CpuLoadX)
+[Sys::CpuLoadX](https://metacpan.org/pod/Sys%3A%3ACpuLoadX)
 
 # SOURCE
 
