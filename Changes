@@ -1,6 +1,8 @@
 Revision history for Perl extension {{$dist->name}}:
 
 {{$NEXT}}
+  [Tests]
+  - Add more author tests.
 
 0.32      2025-03-29 12:02:43+00:00 Europe/London
   [Documentation]
