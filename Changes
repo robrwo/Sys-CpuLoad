@@ -1,6 +1,9 @@
 Revision history for Perl extension {{$dist->name}}:
 
 {{$NEXT}}
+  [Documentation]
+  - Updated the security policy.
+
   [Tests]
   - Add more author tests.
 
